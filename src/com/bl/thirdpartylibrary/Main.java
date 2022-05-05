@@ -63,7 +63,6 @@ public class Main {
                     System.out.println("Please choose a valid contact details");
                     break;
             }
-
             for (int i = 0; i < contact.size(); i++)
                 System.out.println(contact.get(i));
             {
