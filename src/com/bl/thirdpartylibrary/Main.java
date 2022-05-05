@@ -63,7 +63,7 @@ public class Main {
                         String email = scanner.next();
                         PersonDetails personDetail = new PersonDetails(firstName, lastName, address, city, state, zipCode,
                                 phoneNumber, email);
-                        boolean addNewEntry = addPersonDetail.duplicateDetailsRemove(contact,firstName);
+                        boolean addNewEntry = addPersonDetail.duplicateDetailsRemove(contact, firstName);
                         System.out.println(contact);
                         System.out.println("The value is " + " " + addNewEntry);
                         if (!addNewEntry)
@@ -89,12 +89,14 @@ public class Main {
             }
             hashTable.put(i, contact);
         }
-
         for (int i = 1; i <= hashTable.size(); i++) {
             System.out.println("address book " + i);
             System.out.println(hashTable.get(i));
         }
+        addPersonDetail.searchDetails(hashTable);
+        {
             System.out.println("Goodbye!");
             System.out.println();
+        }
     }
 }

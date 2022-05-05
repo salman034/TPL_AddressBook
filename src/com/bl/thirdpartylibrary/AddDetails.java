@@ -1,7 +1,10 @@
 package com.bl.thirdpartylibrary;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddDetails {
     Scanner scanDetails = new Scanner(System.in);
@@ -93,5 +96,17 @@ public class AddDetails {
     public boolean duplicateDetailsRemove(ArrayList<PersonDetails> addNewDetails, String firstName) {
         boolean result = addNewDetails.stream().filter(personDetail -> personDetail.getFirstName().equals(firstName)).findFirst().isPresent();
         return result;
+    }
+    // search Person in a City or State across the multiple AddressBook.
+    public void searchDetails(Hashtable<Integer, ArrayList<PersonDetails>> hashtable) {
+        System.out.println("Enter the City or State Name");
+        String cityOrStateName = scanDetails.nextLine();
+        int totalNumberOfCount = 0;
+        for (int i = 1; i <= hashtable.size(); i++) {
+            List<PersonDetails> numberOfCity = hashtable.get(i).stream().filter(search -> search.getCity().equalsIgnoreCase(cityOrStateName)
+                    || search.getState().equals(cityOrStateName)).collect(Collectors.toList());
+            System.out.println("Details of CityOrState " + numberOfCity + "\n"
+                    + "Number of Times " + numberOfCity.size());
+        }
     }
 }
