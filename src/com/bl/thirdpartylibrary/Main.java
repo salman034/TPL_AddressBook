@@ -58,13 +58,17 @@ public class Main {
 
                 case 2:
                     System.out.println("Enter First Name of contact that you would like to edit: ");
-                    // Character input
                     addPersonDetail.editContact(contact);
+                    break;
+
+                case 3:
+                    addPersonDetail.deleteContact(contact);
                     break;
 
                 default:
                     System.out.println("Please choose a valid contact details");
                     break;
+
             }
             //for loop use to print the data after add aur edit.
             for (int i = 0; i < contact.size(); i++)
